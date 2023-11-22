@@ -466,7 +466,7 @@ def train(opt, train_loader, test_loader, val_loader, board, tocg, D):
 
                     # forward
                     flow_list, fake_segmap, warped_cloth_paired, warped_clothmask_paired = tocg(
-                        input1, input2)
+                        opt, input1, input2)
 
                     warped_cm_onehot = torch.FloatTensor(
                         (warped_clothmask_paired.detach().cpu().numpy() > 0.5).astype(np.float32)).cuda()
